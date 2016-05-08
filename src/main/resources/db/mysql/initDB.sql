@@ -1,0 +1,18 @@
+CREATE DATABASE IF NOT EXISTS cp;
+
+ALTER DATABASE cp
+  DEFAULT CHARACTER SET utf8
+  DEFAULT COLLATE utf8_general_ci;
+
+GRANT ALL PRIVILEGES ON cp.* TO cp@localhost IDENTIFIED BY 'cp';
+
+USE cp;
+
+CREATE TABLE IF NOT EXISTS customers (
+  id INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  location_id INT(4) UNSIGNED NOT NULL,
+  first_name VARCHAR(30),
+  last_name VARCHAR(30),
+  FOREIGN KEY (location_id) REFERENCES locations(id),
+  INDEX(last_name)
+) engine=InnoDB;
