@@ -99,7 +99,7 @@ The Web Layer: Sprint MVC and third-party web libraries (Dandelion and Webjars).
 
 This implementation uses the Model View Controller (MVC) pattern. The different components can be found at:
 	<ul>
-		<li>Model <a href="/src/main/com/aas/samples/customerform/model">here</a></li>
+		<li>Model <a href="/src/main/java/com/aas/samples/customerform/model">here</a></li>
 		<li>Views <a href="/src/main/webapp/WEB-INF/jsp">here</a></li>
 		<li>Controllers <a href="/src/main/java/com/aas/samples/customerform/web">here</a></li>
 	</ul>
