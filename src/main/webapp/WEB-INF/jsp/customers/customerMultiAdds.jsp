@@ -28,7 +28,7 @@
 		    <div class="container xd-container">
 		        <h2><fmt:message key="customerView"/></h2>
 		
-				<div>
+				<div class="tb_div">
 					<table>
 				       	<tr>
 				       		<th><fmt:message key="tbFirstName"/></th>
