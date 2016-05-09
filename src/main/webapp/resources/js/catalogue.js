@@ -59,6 +59,18 @@ myApp.controller('multiAddController', ['$scope', '$http', '$window', function($
 	    $scope.removedDisabled = function() {
 	    	return ($scope.customers.length <= 1);
 	    }
+	    
+	    $scope.hasInclompletRows = function() {
+	    	for (var i = 0; i < $scope.customers.length; i++) {
+	    		var customer = $scope.customers[i];
+
+	    		if (customer.firstName.length == 0 || customer.lastName.length == 0) {
+	    			return true;
+	    		}
+	    	}
+	    	
+	    	return false;
+	    }
 
 }]);
 
