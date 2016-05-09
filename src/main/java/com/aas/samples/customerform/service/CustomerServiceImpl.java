@@ -1,6 +1,7 @@
 package com.aas.samples.customerform.service;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -32,6 +33,11 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public void add(Customer customer) throws DataAccessException {
 		this.customerRepository.add(customer);
+	}
+
+	@Override
+	public void add(List<Customer> customers) throws DataAccessException {
+		this.customerRepository.add(customers);
 	}
 
 	@Override

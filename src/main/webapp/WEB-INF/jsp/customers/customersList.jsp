@@ -32,6 +32,9 @@
 	<c:set var="msg_addElement" scope="request">
 		<fmt:message key="addElement"/>
 	</c:set>
+	<c:set var="msg_multiAddElement" scope="request">
+		<fmt:message key="multiAddElement"/>
+	</c:set>
 	<c:set var="msg_search" scope="request">
 		<fmt:message key="search"/>
 	</c:set>
@@ -53,7 +56,8 @@
 		                <c:out value="${customer.lastName}"/>
 		            </datatables:column>
 		            <datatables:column title="${msg_actions}">
-		            	<a href="/customerform/customers/view/${customer.id}?lang=${language}" title="${msg_viewElement}"><span class="glyphicon glyphicon-th-list icon-blue"></span></a> <a href="/customerform/customers/edit/${customer.id}?lang=${language}" title="${msg_changeElement}"><span class="glyphicon glyphicon-pencil icon-blue"></span></a> <a href="/customerform/customers/delete/${customer.id}?lang=${language}" title="${msg_deleteElement}"><span class="glyphicon glyphicon-trash icon-blue"></span></a> - <a href="/customerform/customers/addView/${customer.id}?lang=${language}" title="${msg_addElement}"><span class="glyphicon glyphicon-plus icon-blue"></span></a>
+		            	<a href="/customerform/customers/view/${customer.id}?lang=${language}" title="${msg_viewElement}"><span class="glyphicon glyphicon-th-list icon-blue"></span></a> <a href="/customerform/customers/edit/${customer.id}?lang=${language}" title="${msg_changeElement}"><span class="glyphicon glyphicon-pencil icon-blue"></span></a> <a href="/customerform/customers/delete/${customer.id}?lang=${language}" title="${msg_deleteElement}"><span class="glyphicon glyphicon-trash icon-blue"></span></a> - 
+		            	<a href="/customerform/customers/addView/${customer.id}?lang=${language}" title="${msg_addElement}"><span class="glyphicon glyphicon-plus icon-blue"></span></a> <a href="/customerform/customers/multiAddView?lang=${language}" title="${msg_multiAddElement}"><span class="glyphicon glyphicon-plus-sign icon-blue"></span></a>
 		            </datatables:column>
 		        </datatables:table>
 		

@@ -12,7 +12,7 @@
 	<jsp:include page="../fragments/htmlHeader.jsp"/>
 	
 	<body onload="setLanguage('${language}', '${msg_search}', 'customers');">
-		<customerform:bodyHeader menuName="customersAddt"/>
+		<customerform:bodyHeader menuName="customersAdd"/>
 		<c:set var="msg_add" scope="request">
 			<fmt:message key="add"/>
 		</c:set>

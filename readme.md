@@ -258,5 +258,5 @@ from within [draw.io](https://www.draw.io/").
 ### TODO
 - Need to complete the storage in a file.
 - Complete unit-tests.
-- Add code to allow creation of multiple client in one go, by using AngularJS also the view will have an addition button to increase the number of new customers in the view.
-- Add to the flow diagram the add view and the update.
+- Add code to allow adding and removing customer's details rows.
+- Add to the flow diagram the add view, the update, multiple add view and multiple add.

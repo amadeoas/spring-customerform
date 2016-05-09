@@ -1,6 +1,7 @@
 package com.aas.samples.customerform.repository.jpa;
 
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,7 +29,33 @@ public class JpaCustomerRepositoryImpl implements CustomerRepository {
     private EntityManager em;
 
 
-    @Override
+	@Override
+	@Transactional
+	public void add(final Customer customer) throws DataAccessException {
+		// TODO: Should check if it does already exist
+		this.em.persist(customer);
+	}
+
+	@Override
+	@Transactional
+	public void add(final List<Customer> customers) throws DataAccessException {
+		for (final Customer customer : customers) {
+			// TODO: Should check if it does already exist
+			this.em.persist(customer);
+		}
+	}
+
+	@Override
+	@Transactional
+	public void delete(final int customerId) throws DataAccessException {
+    	final Query query = this.em.createQuery(
+    			"DELETE FROM Customer AS c "
+    		  + "WHERE c.id = :p");
+
+    	query.setParameter("p", customerId).executeUpdate();
+	}
+
+	@Override
 //    @Cacheable(value = "customers")
     @SuppressWarnings("unchecked")
     public Collection<Customer> findAll() {
@@ -57,23 +84,6 @@ public class JpaCustomerRepositoryImpl implements CustomerRepository {
     			.setParameter("ln", customer.getLastName())
     			.setParameter("p", customer.getId())
     			.executeUpdate();
-	}
-
-	@Override
-	@Transactional
-	public void delete(final int customerId) throws DataAccessException {
-    	final Query query = this.em.createQuery(
-    			"DELETE FROM Customer AS c "
-    		  + "WHERE c.id = :p");
-
-    	query.setParameter("p", customerId).executeUpdate();
-	}
-
-	@Override
-	@Transactional
-	public void add(final Customer customer) throws DataAccessException {
-		// Should check if it does already exist
-		this.em.persist(customer);
 	}
 
 }

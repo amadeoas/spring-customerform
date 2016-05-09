@@ -1,6 +1,7 @@
 package com.aas.samples.customerform.repository;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.dao.DataAccessException;
 
@@ -20,10 +21,18 @@ public interface CustomerRepository {
 	/**
 	 * Adds the specified ustomer's details.
 	 * 
-	 * @param customer the customer details.
+	 * @param customer the customer's details.
 	 * @throws DataAccessException when the data access failed.
 	 */
 	void add(final Customer customer) throws DataAccessException;
+	
+	/**
+	 * Adds the specified ustomer's details.
+	 * 
+	 * @param customers the customers' details.
+	 * @throws DataAccessException when the data access failed.
+	 */
+	void add(final List<Customer> customers) throws DataAccessException;
 
 	/**
 	 * Deletes the specified customer's details.

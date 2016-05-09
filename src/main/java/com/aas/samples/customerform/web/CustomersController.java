@@ -4,11 +4,13 @@ import com.aas.samples.customerform.model.Customer;
 import com.aas.samples.customerform.service.CustomerService;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -93,6 +95,23 @@ public class CustomersController extends BaseController {
     }
 
 	/**
+     * <p>Retrieves the add view of the customer's details.</p>
+     * 
+     * <p>Expected HTTP GET and request '/customer/view/{customerId}'.</p>
+     * 
+     * @param lang the language.
+     * @param model the model.
+     * @return the template.
+     */
+    @RequestMapping(value="/multiAddView", method = RequestMethod.GET)
+    public String multiAddView(@RequestParam(value="lang", required=false) String language, 
+    		final Model model) {
+    	setLanguage(language, model);
+
+        return "customers/customerMultiAdds";
+    }
+
+	/**
      * <p>Retrieves the edit view of the customer's details.</p>
      * 
      * <p>Expected HTTP GET and request '/customer/edit/{customerId}'.</p>
@@ -126,6 +145,25 @@ public class CustomersController extends BaseController {
     public String add(@RequestParam(value="lang", required=false) String language, 
     		final Customer customer, final Model model) {
     	this.customerService.add(customer);
+
+        return initList(language, model);
+    }
+
+	/**
+     * <p>Saves the customer's details provided.</p>
+     * 
+     * <p>Expected HTTP GET and request '/customer/edit/{customerId}'.</p>
+     * 
+     * @param lang the language.
+     * @param customer the customer's details.
+     * @param model the model.
+     * @return the template.
+     */
+    @RequestMapping(value="/multiAdd", method = RequestMethod.POST)
+    public String multiAdd(@RequestBody final List<Customer> customers, 
+    		@RequestParam(value="lang", required=false) String language, 
+    		final Model model) {
+    	this.customerService.add(customers);
 
         return initList(language, model);
     }

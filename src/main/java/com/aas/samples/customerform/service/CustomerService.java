@@ -1,6 +1,7 @@
 package com.aas.samples.customerform.service;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.dao.DataAccessException;
 
@@ -21,6 +22,14 @@ public interface CustomerService {
 	 * @throws DataAccessException when it has been an access problem.
 	 */
 	void add(Customer customer) throws DataAccessException;
+
+	/**
+	 * Adds the customers' details specified.
+	 * 
+	 * @param customers the customers' details.
+	 * @throws DataAccessException when it has been an access problem.
+	 */
+	void add(List<Customer> customers) throws DataAccessException;
 
 	/**
 	 * Deletes the customer's details specified.

@@ -5,6 +5,8 @@ import com.aas.samples.customerform.repository.CustomerRepository;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -22,6 +24,36 @@ public class JdbcCustomerRepositoryImpl implements CustomerRepository {
 
     private JdbcTemplate jdbcTemplate;
 
+
+	@Override
+	public void add(final Customer customer) throws DataAccessException {
+		this.jdbcTemplate.update(
+				"INSERT INTO "
+			  + "customers "
+			  + "(first_name, last_name) "
+	          + "VALUES " + "(?, ?)",
+	          new Object[] {customer.getFirstName(), customer.getLastName()});
+	}
+
+	@Override
+	public void add(List<Customer> customers) throws DataAccessException {
+		for (final Customer customer : customers) {
+			add(customer);
+		}
+	}
+
+	@Override
+	public void delete(final int customerId) throws DataAccessException {
+		int numRows = this.jdbcTemplate.update(
+				"DELETE FROM customers AS c "
+			  + "WHERE c.id = " + customerId);
+		
+		if (numRows != 1) {
+			throw new DataAccessException("Fialed to delete customer's deatils with ID " + customerId) {
+				private static final long serialVersionUID = 6080019203735510870L;
+			};
+		}
+	}
 
     @Autowired
     public JdbcCustomerRepositoryImpl(final JdbcTemplate jdbcTemplate) {
@@ -59,29 +91,6 @@ public class JdbcCustomerRepositoryImpl implements CustomerRepository {
                 "UPDATE * " 
               + "FROM customers AS c ",
               customer);
-	}
-
-	@Override
-	public void delete(final int customerId) throws DataAccessException {
-		int numRows = this.jdbcTemplate.update(
-				"DELETE FROM customers AS c "
-			  + "WHERE c.id = " + customerId);
-		
-		if (numRows != 1) {
-			throw new DataAccessException("Fialed to delete customer's deatils with ID " + customerId) {
-				private static final long serialVersionUID = 6080019203735510870L;
-			};
-		}
-	}
-
-	@Override
-	public void add(final Customer customer) throws DataAccessException {
-		this.jdbcTemplate.update(
-				"INSERT INTO "
-			  + "customers "
-			  + "(first_name, last_name) "
-	          + "VALUES " + "(?, ?)",
-	          new Object[] {customer.getFirstName(), customer.getLastName()});
 	}
 
 }

@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.apache.commons.logging.Log;
@@ -47,6 +48,12 @@ public class FileCustomerRepositoryImpl implements CustomerRepository {
 
 	@Override
 	public void add(final Customer customer) throws DataAccessException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void add(final List<Customer> customers) throws DataAccessException {
 		// TODO Auto-generated method stub
 		
 	}

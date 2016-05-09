@@ -36,6 +36,7 @@
 					        		<li>The general actions have been also added in each row and are
 					        			<ul>
 					        				<li><span class="glyphicon glyphicon-plus icon-blue"></span> to add a new customer.</li>
+					        				<li><span class="glyphicon glyphicon-plus-sign icon-blue"></span> to go to the multi-add view.</li>
 					        			</ul>
 					        		</li>
 					        	</ul>
