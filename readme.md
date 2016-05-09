@@ -20,10 +20,6 @@ You can then access customerform [here](http://localhost:9966/customerform/): ``
 If the web app is started from within eclipse then access customerform 
 [here](http://localhost:8080/customerform/): ``http://localhost:8080/customerform/``
 
-Note: The unit-tests for the JPA are implemented. Other implementations like 
-JDBC and Sprint Data need to be completed for the full unit-tests to fully 
-pass.
-
 
 ## Running unit-tests
 
@@ -134,6 +130,28 @@ If m2e is not there, just follow the install process [here](http://www.eclipse.o
 
 2) Inside Eclipse
 ``File -> Import -> Maven -> Existing Maven project``
+
+
+## Security
+
+There is not any security implemented on this code except on the use of GET and 
+POST, where POST hides the direct view of the transmitted values.
+
+A common used approach to security is the use of security tokens:
+
+	Since the HTTP protocol is stateless, this means that if we authenticate a 
+	user with a username and password, then on the next request, our 
+	application won’t know who we are. We would have to authenticate again.
+
+Token based authentication is stateless. No information about a user is 
+being stored on the server or in a session, so the application can scale.
+
+The step followed are:
+- User requests access with Username and Password
+- Application validates credentials
+- Application provides a signed token to the client, which me contain extra data
+- Client stores that token and sends it along with every request
+- Server verifies token and responds accordingly to the request, e.g. data
 
 
 ## Looking for something in particular?
