@@ -36,17 +36,6 @@ To run an specific unit-test execute: ./mvnw -Dtest=TestsClassName test, example
 >./mvnw -Dtest=CatalogueServiceJpaTests test
 
 
-## Running unit tests
-
-To run all the unit-tests use:
-
->./mvnw test
-
-To run an specific unit-test used the format /mvnw -Dtest=TestClassName test, example:
-
->./mvnw -Dtest=CustomerServiceJpaTests test
-
-
 Note: the JPA and JDBC implementations have unit-tests implemented and tested.
 
 
