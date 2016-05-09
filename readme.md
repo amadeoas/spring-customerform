@@ -258,4 +258,3 @@ from within [draw.io](https://www.draw.io/").
 ### TODO
 - Need to complete the storage in a file.
 - Complete unit-tests.
-- Add to the flow diagram the add view, the update, multiple add view and multiple add.
