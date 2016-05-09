@@ -59,8 +59,6 @@ located at the top right hand side. The views are:
 
 2) [Customers](#customers-view)
 
-3) [Products](#products-view)
-
 If an exception is thrown when processing a request by one of the controller 
 then an internal error page is displayed on the browser.
 
