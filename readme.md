@@ -258,5 +258,4 @@ from within [draw.io](https://www.draw.io/").
 ### TODO
 - Need to complete the storage in a file.
 - Complete unit-tests.
-- In the multi-add view disable remove button if there is only 1 row.
 - Add to the flow diagram the add view, the update, multiple add view and multiple add.

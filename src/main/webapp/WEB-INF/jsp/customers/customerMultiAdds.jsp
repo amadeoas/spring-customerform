@@ -39,7 +39,7 @@
 			        		<td class="field_data"><input type="text" ng-model="customer.firstName" required/></td>
 			        		<td class="field_data"><input type="text" ng-model="customer.lastName" required/></td>
 			        		<td class="field_data">
-			        			<a href ng-click="removeEntry($index)" title="${msg_rmvElement}"><span class="glyphicon glyphicon-minus icon-blue"></span></a> - 
+			        			<a href ng-click="removeEntry($index)" title="${msg_rmvElement}" ng-class="{disabled: removedDisabled()}"><span class="glyphicon glyphicon-minus icon-blue"></span></a> - 
 			        			<a href ng-click="addEntry()" title="${msg_addElement}"><span class="glyphicon glyphicon-plus icon-blue"></span></a>
 			        		</td>
 			        	</tr>

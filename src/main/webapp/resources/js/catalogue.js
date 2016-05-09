@@ -27,6 +27,11 @@ myApp.controller('multiAddController', ['$scope', '$http', '$window', function($
 	    };
 	    
 	    $scope.removeEntry = function(index) {
+	    	if ($scope.customers.length <= 1) {
+	    		// Always it must be one row
+	    		return;
+	    	}
+
 	    	$scope.customers.splice(index, 1);
 	    }
 	    
@@ -49,6 +54,10 @@ myApp.controller('multiAddController', ['$scope', '$http', '$window', function($
 	    	}
 	    	
 	    	return true;
+	    }
+	    
+	    $scope.removedDisabled = function() {
+	    	return ($scope.customers.length <= 1);
 	    }
 
 }]);
