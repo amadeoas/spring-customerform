@@ -36,6 +36,10 @@ myApp.controller('multiAddController', ['$scope', '$http', '$window', function($
 	    }
 	    
 	    $scope.addEntry = function() {
+	    	if ($scope.hasInclompletRows()) {
+	    		return; // nothing to do
+	    	}
+
 	    	var customer = {
 	    			id: null,
 					firstName: "",
@@ -61,6 +65,10 @@ myApp.controller('multiAddController', ['$scope', '$http', '$window', function($
 	    }
 	    
 	    $scope.hasInclompletRows = function() {
+	    	if ($scope.customers.length == 0) {
+	    		return false;
+	    	}
+
 	    	for (var i = 0; i < $scope.customers.length; i++) {
 	    		var customer = $scope.customers[i];
 
