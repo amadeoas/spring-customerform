@@ -1,6 +1,6 @@
 # Spring Customer Products Application
 
-By Amadeo Ascó, April 2016.
+By Amadeo Ascó, May 2016.
 
 This is an implementation of a simple web app using Java and Spring that allows 
 customers to select products which are available to them, based on their home 
@@ -143,8 +143,9 @@ A common used approach to security is the use of security tokens:
 	user with a username and password, then on the next request, our 
 	application won’t know who we are. We would have to authenticate again.
 
-Token based authentication is stateless. No information about a user is 
-being stored on the server or in a session, so the application can scale.
+Token based authentication is stateless, e.g. JSON Web Tokens. No information 
+about a user is being stored on the server or in a session, so the application 
+can scale.
 
 The step followed are:
 - User requests access with Username and Password
